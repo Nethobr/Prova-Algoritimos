@@ -1,5 +1,5 @@
-#include <stdio.h> //bibliotÈca padr„o
-#include <math.h>  //bibliotÈca para operaÁıes matem·ticas
+#include <stdio.h> //bibliot√©ca padr√£o
+#include <math.h>  //bibliot√©ca para opera√ß√µes matem√°ticas
 
 //REGISTRADORES DA IMAGEM COLORIDA
 typedef struct 
@@ -28,20 +28,20 @@ int VerificaVal (int valor)
 	{
 		do
 		{
-			printf("Valor inv·lido, digite n˙meros ente 0 - 255: ");
+			printf("Valor inv√°lido, digite n√∫meros ente 0 - 255: ");
 			scanf("%d", &valor);
 		} while (valor < 0 || valor > 255);
 	}	//fim if
 
 	return valor;
-}	//FunÁ„o que verifica se os valores est„o entre 0 - 255
+}	//Fun√ß√£o que verifica se os valores est√£o entre 0 - 255
 
 int VericaImgColor (int v)
 {
 	int x = 0;
 	if (v != 1)
 	{
-		printf("Image colorida n„o registrada, favor registre ela antes de realizar essa operaÁ„o!\n");
+		printf("Image colorida n√£o registrada, favor registre ela antes de realizar essa opera√ß√£o!\n");
 	}	//fim if
 	else
 	{
@@ -52,12 +52,12 @@ int VericaImgColor (int v)
 
 void TonsDeCinza (int  veri, ColorImagem imagem[3][3], CinzaImagem	c[3][3], int * verito)
 {
-	//VARI¡VEIS
+	//VARI√ÅVEIS
 	int				i, j, k;	//contadores
-	int				calc = 0;	//calcula para convers„o
-	int				verif = 0;	//verificaÁ„o
+	int				calc = 0;	//calcula para convers√£o
+	int				verif = 0;	//verifica√ß√£o
 	
-	//INÕCIO
+	//IN√çCIO
 	verif = VericaImgColor (veri);
 	
 	if (verif == 1)
@@ -82,10 +82,10 @@ void TonsDeCinza (int  veri, ColorImagem imagem[3][3], CinzaImagem	c[3][3], int 
 
 void ColorizeImagem (int * veri, ColorImagem imagem[3][3])
 {
-	//VARI¡VEIS
+	//VARI√ÅVEIS
 	int				i, j, k;	//contadores
 	
-	//INÕCIO
+	//IN√çCIO
 	for (i = 0; i < 3; i++)
 	{
 		for (j = 0; j < 3; j++)
@@ -103,15 +103,15 @@ void ColorizeImagem (int * veri, ColorImagem imagem[3][3])
 	*veri = 1;
 }	//Montar a imagem colorida
 
-int ImpriImg (int veri, ColorImagem imagem[3][3], CinzaImagem c[3][3], int verito)
+void ImpriImg (int veri, ColorImagem imagem[3][3], CinzaImagem c[3][3], int verito)
 {
-	//VARI¡VEIS
+	//VARI√ÅVEIS
 	int				i, j, k;	//contadores
-	int				verif = 0;	//verificaÁ„o
+	int				verif = 0;	//verifica√ß√£o
 	CinzaImagem		cinza;		//cinza
 	ColorImagem		ima;		//imagem
 	
-	//INÕCIO
+	//IN√çCIO
 	verif = VericaImgColor (veri);
 	
 	if (verif == 1 && verito == 1)
@@ -157,19 +157,19 @@ int ImpriImg (int veri, ColorImagem imagem[3][3], CinzaImagem c[3][3], int verit
 	}	//fim else
 	else
 	{
-		printf("A convers„o para tons de cinza n„o foi realizada!");
+		printf("A convers√£o para tons de cinza n√£o foi realizada!");
 	}	//fim else
 }
 
 int VerificaSaida (int op)
 {
-	//VARI¡VEIS
+	//VARI√ÅVEIS
 	int ok;
 	
-	//INÕCIO
+	//IN√çCIO
 	do
 	{
-		printf("Tem certeza que deseja sair? (1 - sim, 0 - n„o)\nR: ");
+		printf("Tem certeza que deseja sair? (1 - sim, 0 - n√£o)\nR: ");
 		scanf("%d", &ok);	
 	} while (ok != 1 && ok != 0);
 	
@@ -182,15 +182,15 @@ int VerificaSaida (int op)
 		op = 5;
 	}	//fim if - else
 	return op;
-}	//fim da verificaÁ„o do menu.
+}	//fim da verifica√ß√£o do menu.
 
-int Menu ()
+void Menu ()
 {
-	//VARI¡VEIS
+	//VARI√ÅVEIS
 	int op, veri = 0, verito = 0;
 	ColorImagem imagem[3][3];
 	CinzaImagem	cinza[3][3];
-	//INÕCIO
+	//IN√çCIO
 	do
 	{
 		printf("1. Preencher a imagem colorida\n");
@@ -212,7 +212,7 @@ int Menu ()
 				break;				
 
 				case 3:
-					printf("Impress„o\n");
+					printf("Impress√£o\n");
 					ImpriImg (veri, imagem, cinza, verito);
 					printf("\n");
 				break;
@@ -223,14 +223,14 @@ int Menu ()
 				break;
 				
 				default:
-					printf("Valor inv·lido!");
+					printf("Valor inv√°lido!");
 		}	//fim switch
 	} while (op != 4);
 }	//procedimento do menu
 
 int main()
 {
-	//INÕCIO
+	//IN√çCIO
 	Menu();	
 	
 	printf("Fim do programa!");
